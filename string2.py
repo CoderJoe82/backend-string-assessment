@@ -4,7 +4,7 @@ Kenzie assignment: String2
 """
 # Your name, plus anyone who helped you with this assignment.
 # Give credit where credit is due.
-__author__ = "???"
+__author__ = "Joseph Padgett"
 
 # Copyright 2010 Google Inc.
 # Licensed under the Apache License, Version 2.0
@@ -23,9 +23,13 @@ __author__ = "???"
 
 
 def verbing(s):
-    # your code here
-    return
-
+    if len(s) < 3:
+        return s
+    else:
+        if s.endswith("ing"):
+            return f"{s}ly"
+        else:
+            return f"{s}ing"
 
 # E. not_bad
 # Given a string, find the first occurrence of the substrings
@@ -37,8 +41,16 @@ def verbing(s):
 
 
 def not_bad(s):
-    # your code here
-    return
+    good_string = ""
+    if "not that bad" in s:
+        good_string = s.replace("not that bad", "good")
+        return good_string
+    elif "not so bad" in s:
+        good_string = s.replace("not so bad", "good")
+        return good_string
+    else:
+        return s
+    
 
 
 # F. front_back
@@ -52,9 +64,14 @@ def not_bad(s):
 
 
 def front_back(a, b):
-    # your code here
-    return
+    a_mid = len(a) // 2
+    b_mid = len(b) // 2
+    if len(a) % 2:
+        a_mid += 1
+    if len(b) % 2:
+        b_mid += 1
 
+    return a[:a_mid] + b[:b_mid] + a[a_mid:] + b[b_mid:]
 
 # Provided simple test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
